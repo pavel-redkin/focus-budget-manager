@@ -1,0 +1,36 @@
+version: '3'
+services:
+  mongo:
+    image: "mongo:4.0.4-xenial"
+    volumes:
+      - ./data:/data
+    ports:
+      - 27017:27017
+  server:
+    build: ./server
+    expose:
+      - 3001
+    ports:
+      - 3001:3001
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    volumes:
+      - ./server:/srv/src/server
+      - /srv/src/server/node_modules
+    command: npm run start
+  client:
+    build: ./client
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    links:
+      - server
+    volumes:
+      - ./client:/srv/src/client
+      - /srv/src/client/node_modules
+    command: npm run start
+
+

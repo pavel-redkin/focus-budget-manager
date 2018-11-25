@@ -20,7 +20,7 @@ app.use(passport.initialize());
 
 app.set('budgetsecret', config.secret);
 
-consign({ cwd: 'services' })
+consign()
       .include('BudgetManagerAPI/app/setup')
       .then('BudgetManagerAPI/app/api')
       .then('BudgetManagerAPI/app/routes')
