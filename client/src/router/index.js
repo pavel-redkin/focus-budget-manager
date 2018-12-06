@@ -3,13 +3,14 @@ import Router from 'vue-router'
 import * as Auth from '@/components/pages/Authentication'
 
 // Pages
-import Home from '@/components/pages/Home'
+// import Home from '@/components/pages/Home'
 import Authentication from '@/components/pages/Authentication/Authentication'
 
 // Global components
 import Header from '@/components/Header'
 import List from '@/components/List/List'
 import Create from '@/components/pages/Create'
+import Timer from '@/components/pages/Timer'
 
 // Register components
 Vue.component('app-header', Header)
@@ -22,13 +23,15 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      components: {
-        default: Home,
-        header: Header,
-        list: List,
-        create: Create
-      }
+      name: 'Timer',
+      component: Timer
+      // name: 'Home',
+      // components: {
+      //   default: Home,
+      //   header: Header,
+      //   list: List,
+      //   create: Create
+      // }
     },
     {
       path: '/login',

@@ -19,8 +19,8 @@
   @import "./assets/styles";
 
   body {
-    background: url('./assets/images/background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    /*background: url('./assets/images/background.jpg') no-repeat center center fixed;*/
+    /*background-size: cover;*/
     &:after {
       content: '';
       position: fixed;
@@ -28,7 +28,7 @@
       height: 100%;
       top: 0;
       left: 0;
-      background-color: $background-tint;
+      background-color: $background-white;
       opacity: .3;
       z-index: -1;
     }
