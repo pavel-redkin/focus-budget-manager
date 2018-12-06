@@ -1,5 +1,15 @@
 <template>
   <main class="l-timer-page">
+    <div class="memo">
+      <v-text-field
+        label="Временные заметки"
+        textarea
+        rows="4"
+        auto-grow
+        counter=4000
+        v-model="memo"
+      ></v-text-field>
+    </div>
     <div class="l-timer">
       <h2 class="red--text">
         {{ alert }}
@@ -44,6 +54,7 @@
     name: 'Timer',
     data () {
       return {
+        memo: '',
         idleSeconds: 0,
         alert: '',
         timerText: '',
@@ -59,6 +70,11 @@
       if (this.elapsedTimers === null) {
         this.elapsedTimers = []
       }
+
+      this.memo = localStorage.getItem('app-notes-memo')
+      this.$watch('memo', (val) => {
+        localStorage.setItem('app-notes-memo', val)
+      })
 
       setInterval(() => {
         if (this.isOn) {
