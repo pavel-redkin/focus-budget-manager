@@ -26,10 +26,7 @@
         :key="elapsed.key"
       >
         <li>
-          <v-btn
-            :color="success"
-            @click.prevent="deleteElapsed(elapsed)"
-          >
+          <v-btn @click.prevent="deleteElapsed(elapsed)">
             X
           </v-btn>
 
